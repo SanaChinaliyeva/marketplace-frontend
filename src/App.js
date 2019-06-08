@@ -10,6 +10,7 @@ import Login from "./containers/Login/Login";
 import ProductsByCategory from "./containers/ProductsByCategory/ProductsByCategory";
 import FullProduct from "./containers/FullProduct/FullProduct";
 import {NotificationContainer} from "react-notifications";
+import NewProduct from "./containers/NewProduct/NewProduct";
 
 class App extends Component {
   render () {
@@ -39,6 +40,7 @@ class App extends Component {
                   }/>
                   <Route path="/user/register" exact component={Register}/>
                   <Route path="/user/login" exact component={Login}/>
+                  <Route path="/user/add_item" exact component={NewProduct}/>
                 </Switch>
               </Container>
             </main>

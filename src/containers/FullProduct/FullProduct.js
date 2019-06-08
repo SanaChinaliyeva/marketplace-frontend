@@ -4,6 +4,7 @@ import Button from "reactstrap/es/Button";
 import {connect} from "react-redux";
 import {fetchProductById, deleteProduct} from "../../store/actions/actions";
 import {withRouter} from "react-router";
+import Error from "../../components/Error/Error";
 
 class FullProduct extends Component {
     componentDidMount () {
@@ -29,6 +30,7 @@ class FullProduct extends Component {
         const product = this.props.product;
         return (
             <div>
+                {this.props.err ? <Error error={this.props.err} /> : null}
                 {product ?
                     <div className="w-50">
                         <h1>{product.name}</h1>
@@ -48,7 +50,8 @@ class FullProduct extends Component {
 const mapStateToProps = state => {
     return {
         user: state.users.user,
-        product: state.shop.product
+        product: state.shop.product,
+        err: state.shop.err
     }
 };
 

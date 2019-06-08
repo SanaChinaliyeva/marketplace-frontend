@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {fetchProducts} from "../../store/actions/actions";
 import Products from "../../components/Products/Products";
 import {withRouter} from "react-router";
+import Error from "../../components/Error/Error";
 
 class ProductsByCategory extends Component {
     componentDidMount () {
@@ -17,6 +18,7 @@ class ProductsByCategory extends Component {
     render () {
         return (
             <div>
+                {this.props.err ? <Error error={this.props.err} /> : null}
                 {this.props.products ? <Products onProductClick={this.productClickHandler} products={this.props.products} /> : null }
             </div>
         )
@@ -25,7 +27,8 @@ class ProductsByCategory extends Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.shop.products
+        products: state.shop.products,
+        err: state.shop.err
     }
 };
 

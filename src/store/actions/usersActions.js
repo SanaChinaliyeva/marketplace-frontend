@@ -8,6 +8,7 @@ import {
     REGISTER_USER_ERROR,
     REGISTER_USER_SUCCESS
 } from "./actionTypes";
+import {networkRequestFailure} from "./actions";
 
 const registerUserSuccess = () => {
     return {type: REGISTER_USER_SUCCESS};
@@ -75,6 +76,12 @@ export const logoutUser = () => {
             dispatch({type: LOGOUT_USER});
             dispatch(push("/"));
             NotificationManager.success(response.data.message);
+        }).catch(error => {
+            if (error.response && error.response.data) {
+                dispatch(networkRequestFailure(error.response.data));
+            } else {
+                dispatch(networkRequestFailure({global: "No internet connection"}));
+            }
         });
     }
 };

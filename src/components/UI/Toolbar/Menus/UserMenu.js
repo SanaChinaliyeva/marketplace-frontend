@@ -1,5 +1,6 @@
 import React from 'react';
-import {DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown} from "reactstrap";
+import {DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown, NavLink} from "reactstrap";
+import {NavLink as RouterNavLink} from "react-router-dom";
 
 const UserMenu = ({user, logout}) => {
     return (
@@ -8,9 +9,9 @@ const UserMenu = ({user, logout}) => {
                 Hello, {user.display_name}!
             </DropdownToggle>
             <DropdownMenu right>
-                <DropdownItem>
+                <NavLink tag={RouterNavLink} to='/user/add_item' exact>
                     Add new item
-                </DropdownItem>
+                </NavLink>
                 <DropdownItem divider />
                 <DropdownItem onClick={logout}>
                     Logout

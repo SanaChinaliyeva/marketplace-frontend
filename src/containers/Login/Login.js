@@ -1,8 +1,9 @@
 import React, {Component, Fragment} from 'react';
-import {Alert, Button, Col, Form, FormGroup} from "reactstrap";
+import {Button, Col, Form, FormGroup} from "reactstrap";
 import {connect} from "react-redux";
 import {loginUser} from "../../store/actions/usersActions";
 import FormElement from "../../components/UI/FormElement/FormElement";
+import Error from "../../components/Error/Error";
 
 class Login extends Component {
     state = {
@@ -23,10 +24,7 @@ class Login extends Component {
         return (
             <Fragment>
                 <h2>Login</h2>
-                {
-                    this.props.error ?
-                    <Alert color="danger">{this.props.error.message}</Alert> : null
-                }
+                {this.props.err ? <Error error={this.props.err} /> : null}
                 <Form onSubmit={this.onSubmitHandler}>
                     <FormElement
                         title="Username"

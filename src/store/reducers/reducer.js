@@ -1,9 +1,10 @@
-import {FETCH_CATEGORIES, FETCH_PRODUCT_BY_ID, FETCH_PRODUCTS} from "../actions/actions";
+import {FETCH_CATEGORIES, FETCH_PRODUCT_BY_ID, FETCH_PRODUCTS, REQUEST_FAILURE} from "../actions/actions";
 
 const initialState = {
     categories: [],
     products: [],
-    product: null
+    product: null,
+    err: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +15,8 @@ const reducer = (state = initialState, action) => {
             return {...state, products: action.value};
         case FETCH_PRODUCT_BY_ID:
             return {...state, product: action.value};
+        case REQUEST_FAILURE:
+            return {...state, err: action.value};
         default:
             return state;
     }
