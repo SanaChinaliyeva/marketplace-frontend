@@ -54,7 +54,7 @@ class Register extends Component {
                         name="display_name"
                         value={this.state.display_name}
                         placeholder="Display name"
-                        type="display_name"
+                        type="text"
                         onChange={this.inputChangeHandler}
                         error={this.getFieldError('display name')}
                     />
@@ -63,7 +63,7 @@ class Register extends Component {
                         name="phone"
                         value={this.state.phone}
                         placeholder="Phone number"
-                        type="phone"
+                        type="text"
                         onChange={this.inputChangeHandler}
                         error={this.getFieldError('phone')}
                     />

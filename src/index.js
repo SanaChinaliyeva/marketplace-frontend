@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App';
 import usersReducer from "./store/reducers/users";
+import reducer from "./store/reducers/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,6 +19,7 @@ const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
     users: usersReducer,
+    shop: reducer,
     router: connectRouter(history)
 });
 

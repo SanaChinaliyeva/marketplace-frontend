@@ -23,6 +23,13 @@ class App extends Component {
               <Container>
                 <Switch>
                   <Route path="/" exact component={ProductsPage}/>
+                  <Route
+                      exact
+                      path='/:category'
+                      render={(props) =>
+                          <ProductsPage category={props.match.params.category}/>
+                      }
+                  />
                   <Route path="/register" component={Register}/>
                   <Route path="/login" component={Login}/>
                 </Switch>
