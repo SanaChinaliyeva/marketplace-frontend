@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Card, CardBody, CardSubtitle, CardTitle} from "reactstrap";
+import {Card, CardBody, CardSubtitle, CardTitle} from "reactstrap";
 import ProductThumbnail from "../ProductThumbnail/ProductThumbnail";
 
 const Products = props => {

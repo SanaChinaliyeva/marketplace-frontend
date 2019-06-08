@@ -11,7 +11,8 @@ class ProductsPage extends Component {
         this.props.onFetchProducts();
     }
 
-    productClickHandler = productId => {
+    productClickHandler = (e, productId) => {
+        e.preventDefault();
         this.props.history.replace('/products/'+productId);
     };
 

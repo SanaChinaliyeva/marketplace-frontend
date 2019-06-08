@@ -8,7 +8,7 @@ const AnonymousMenu = () => {
             <NavItem>
                 <NavLink
                     tag={RouterNavLink}
-                    to='/register'
+                    to='/user/register'
                     exact
                 >
                     Sign up
@@ -17,7 +17,7 @@ const AnonymousMenu = () => {
             <NavItem>
                 <NavLink
                     tag={RouterNavLink}
-                    to='/login'
+                    to='/user/login'
                     exact
                 >
                     Login

@@ -8,6 +8,7 @@ import {logoutUser} from "./store/actions/usersActions";
 import Register from "./containers/Register/Register";
 import Login from "./containers/Login/Login";
 import ProductsByCategory from "./containers/ProductsByCategory/ProductsByCategory";
+import FullProduct from "./containers/FullProduct/FullProduct";
 
 class App extends Component {
   render () {
@@ -32,10 +33,10 @@ class App extends Component {
                       }
                   />
                   <Route path="/products/:id" exact render={(props) =>
-                      <FullProduct product={props.match.params.id}/>
+                      <FullProduct {...props}/>
                   }/>
-                  <Route path="/register" component={Register}/>
-                  <Route path="/login" component={Login}/>
+                  <Route path="/user/register" exact component={Register}/>
+                  <Route path="/user/login" exact component={Login}/>
                 </Switch>
               </Container>
             </main>

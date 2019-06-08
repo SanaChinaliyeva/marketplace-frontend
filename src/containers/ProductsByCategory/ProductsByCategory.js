@@ -9,8 +9,9 @@ class ProductsByCategory extends Component {
         this.props.onFetchProducts(this.props.category);
     }
 
-    productClickHandler = productId => {
-       this.props.history.replace('/products/'+productId);
+    productClickHandler = (e, productId) => {
+        e.preventDefault();
+        this.props.history.replace('/products/'+productId);
     };
 
     render () {
