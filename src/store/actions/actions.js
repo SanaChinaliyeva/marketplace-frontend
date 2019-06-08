@@ -108,6 +108,7 @@ export const createProduct = product => {
         };
         return axios.post('/products', product, {headers}).then(() => {
             dispatch(createProductSuccess());
+            NotificationManager.success("Товар успешно добавлен в маркетплейс");
         }).catch(error => {
             if (error.response && error.response.data) {
                 dispatch(networkRequestFailure(error.response.data));
