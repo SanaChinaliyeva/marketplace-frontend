@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import ProductThumbnail from "../../components/ProductThumbnail/ProductThumbnail";
 import Button from "reactstrap/es/Button";
 import {connect} from "react-redux";
-import {fetchProductById} from "../../store/actions/actions";
+import {fetchProductById, deleteProduct} from "../../store/actions/actions";
+import {withRouter} from "react-router";
 
 class FullProduct extends Component {
     componentDidMount () {
@@ -19,6 +20,11 @@ class FullProduct extends Component {
         return false;
     };
 
+    deleteProductHandler = (e, id) => {
+        e.preventDefault();
+        this.props.onDeleteProduct(id);
+    };
+
     render () {
         const product = this.props.product;
         return (
@@ -32,7 +38,7 @@ class FullProduct extends Component {
                         <h2>Category: {product.category.title}</h2>
                         <h3>Seller: {product.seller.display_name}</h3>
                         <h3>Seller's phone number: {product.seller.phone}</h3>
-                        {this.isSeller() ? <Button>Delete</Button> : null }
+                        {this.isSeller() ? <Button onClick={(e)=>this.deleteProductHandler(e, product._id)}>Delete</Button> : null }
                     </div> : null}
             </div>
         )
@@ -48,8 +54,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchProductById: (id) => dispatch(fetchProductById(id))
+        onFetchProductById: (id) => dispatch(fetchProductById(id)),
+        onDeleteProduct: (id) => dispatch(deleteProduct(id))
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FullProduct);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FullProduct));

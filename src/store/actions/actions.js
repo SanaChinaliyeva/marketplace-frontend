@@ -1,4 +1,5 @@
 import axios from '../../axios-api';
+import {push} from 'connected-react-router';
 
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
@@ -48,5 +49,19 @@ export const fetchProductById = (id) => {
                 dispatch(fetchProductByIdSuccess(response.data));
             }
         ).catch(err => {console.log(err)});
+    }
+};
+
+export const deleteProduct = id => {
+    return (dispatch, getState) => {
+        const token = getState().users.user.token;
+        const headers = {
+            Authorization: token
+        };
+        axios.delete('/products/'+id, {headers}).then(res => {
+            dispatch(push('/'));
+        }).catch(err => {
+            console.log(err.message);
+        })
     }
 };
