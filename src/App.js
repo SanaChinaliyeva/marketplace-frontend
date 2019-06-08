@@ -9,12 +9,14 @@ import Register from "./containers/Register/Register";
 import Login from "./containers/Login/Login";
 import ProductsByCategory from "./containers/ProductsByCategory/ProductsByCategory";
 import FullProduct from "./containers/FullProduct/FullProduct";
+import {NotificationContainer} from "react-notifications";
 
 class App extends Component {
   render () {
     return (
         <div>
           <Fragment>
+            <NotificationContainer/>
             <header>
               <Toolbar
                   user={this.props.user}

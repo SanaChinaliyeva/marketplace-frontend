@@ -8,6 +8,7 @@ import {connectRouter, routerMiddleware, ConnectedRouter} from "connected-react-
 import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-notifications/lib/notifications.css';
 
 import App from './App';
 import usersReducer from "./store/reducers/users";

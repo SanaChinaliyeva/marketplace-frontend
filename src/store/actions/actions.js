@@ -1,5 +1,6 @@
 import axios from '../../axios-api';
 import {push} from 'connected-react-router';
+import {NotificationManager} from "react-notifications";
 
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
@@ -59,6 +60,7 @@ export const deleteProduct = id => {
             Authorization: token
         };
         axios.delete('/products/'+id, {headers}).then(res => {
+            NotificationManager.success("Объявление о товаре удалено!");
             dispatch(push('/'));
         }).catch(err => {
             console.log(err.message);

@@ -22,6 +22,7 @@ export const registerUser = userData => {
         axios.post("/users", userData)
             .then(
                 response => {
+                    NotificationManager.success("Регистрация прошла успешно!");
                     dispatch(registerUserSuccess());
                     dispatch(push("/"));
                 },
@@ -48,8 +49,10 @@ export const loginUser = userData => {
         axios.post("/users/sessions", userData)
             .then(
                 response => {
+
                     dispatch(loginUserSuccess(response.data));
                     dispatch(push("/"));
+                    NotificationManager.success("Добро пожаловать обратно!");
                 },
                 error => {
                     if (error.response && error.response.data) {
@@ -70,8 +73,8 @@ export const logoutUser = () => {
         };
         axios.delete("/users/sessions", {headers}).then(response => {
             dispatch({type: LOGOUT_USER});
-            NotificationManager.success(response.data.message);
             dispatch(push("/"));
+            NotificationManager.success(response.data.message);
         });
     }
 };
