@@ -10,7 +10,7 @@ const Categories = props => {
                 categories.map(category =>
                     <NavLink key={category._id}
                         tag={RouterNavLink}
-                        to={'/'+category.title.toLowerCase()}
+                        to={'/'+category.title}
                         exact
                     >
                         {category.title}

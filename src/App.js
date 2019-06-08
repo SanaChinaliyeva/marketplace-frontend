@@ -7,6 +7,7 @@ import ProductsPage from "./containers/ProductsPage/ProductsPage";
 import {logoutUser} from "./store/actions/usersActions";
 import Register from "./containers/Register/Register";
 import Login from "./containers/Login/Login";
+import ProductsByCategory from "./containers/ProductsByCategory/ProductsByCategory";
 
 class App extends Component {
   render () {
@@ -27,9 +28,12 @@ class App extends Component {
                       exact
                       path='/:category'
                       render={(props) =>
-                          <ProductsPage category={props.match.params.category}/>
+                          <ProductsByCategory category={props.match.params.category}/>
                       }
                   />
+                  <Route path="/products/:id" exact render={(props) =>
+                      <FullProduct product={props.match.params.id}/>
+                  }/>
                   <Route path="/register" component={Register}/>
                   <Route path="/login" component={Login}/>
                 </Switch>
