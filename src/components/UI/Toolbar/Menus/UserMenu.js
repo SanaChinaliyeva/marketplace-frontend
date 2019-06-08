@@ -5,11 +5,11 @@ const UserMenu = ({user, logout}) => {
     return (
         <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
-                Hello, {user.username}!
+                Hello, {user.display_name}!
             </DropdownToggle>
             <DropdownMenu right>
                 <DropdownItem>
-                    View profile
+                    Add new item
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem onClick={logout}>

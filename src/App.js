@@ -3,6 +3,10 @@ import {Container} from "reactstrap";
 import {Route, Switch, withRouter} from "react-router";
 import Toolbar from "./components/UI/Toolbar/Toolbar";
 import {connect} from "react-redux";
+import ProductsPage from "./containers/ProductsPage/ProductsPage";
+import {logoutUser} from "./store/actions/usersActions";
+import Register from "./containers/Register/Register";
+import Login from "./containers/Login/Login";
 
 class App extends Component {
   render () {
@@ -18,7 +22,9 @@ class App extends Component {
             <main>
               <Container>
                 <Switch>
-                  <Route path="/" exact component={}/>
+                  <Route path="/" exact component={ProductsPage}/>
+                  <Route path="/register" component={Register}/>
+                  <Route path="/login" component={Login}/>
                 </Switch>
               </Container>
             </main>
